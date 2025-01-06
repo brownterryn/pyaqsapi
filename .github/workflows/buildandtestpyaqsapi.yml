@@ -13,10 +13,13 @@ on:
 
 defaults:
   run:
-    shell: bash -el {0}
+    shell: micromamba-shell {0}
     
 jobs:
   setup_environment:
+    defaults:
+      run:
+        shell: micromamba-shell {0}
     runs-on: ubuntu-latest
     env:
       AQSkey: ${{ secrets.AQSKEY }}
@@ -34,7 +37,7 @@ jobs:
         uses: mamba-org/setup-micromamba@v2
         with:
           environment-file: environment.yml
-          init-shell: bash
+          # init-shell: bash
           cache-environment: true
           environment-name: pyaqsapi
           post-cleanup: 'all'
