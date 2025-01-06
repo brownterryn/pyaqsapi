@@ -39,7 +39,7 @@ jobs:
           generate-run-shell: true
           environment-file: environment.yml
           # init-shell: bash
-          cache-environment: true
+          cache-environment: false
           environment-name: pyaqsapi
           post-cleanup: 'all'
 
